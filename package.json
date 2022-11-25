@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "concurrently next dev",
     "build": "next build",
     "start": "next start",
     "setup": "node ./contentful/setup.js"
@@ -9,15 +9,18 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.4.0",
     "classnames": "2.3.1",
+    "concurrently": "^7.6.0",
     "date-fns": "2.28.0",
+    "flowbite": "^1.5.4",
+    "flowbite-react": "^0.3.5",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "autoprefixer": "10.4.2",
-    "contentful-import": "^7.8.7",
-    "postcss": "8.4.5",
-    "tailwindcss": "^3.0.15"
+    "autoprefixer": "^10.4.2",
+    "contentful-import": "^8.5.12",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.2.4"
   }
 }
