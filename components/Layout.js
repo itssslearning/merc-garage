@@ -3,7 +3,7 @@ import {Footer} from "flowbite-react";
 
 export default function Layout({children}){
     return(
-        <div>
+        <div className="container">
             <Navbar fluid={true} rounded={true}>
                 <Navbar.Brand href="/">
                     <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Mercedes-Garage</span>

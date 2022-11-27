@@ -28,3 +28,9 @@ export default function Vehicles({vehicles}) {
     </div>
   )
 }
+
+// <% books.forEach(book => { %>
+//   <a href="/books/<%= book.id %>">
+//     <img class="book-cover <%= bookCoverClass %>" src="<%= book.coverImagePath %>">
+//   </a>
+// <% }) %>
