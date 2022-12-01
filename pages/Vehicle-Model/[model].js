@@ -23,10 +23,12 @@ export const getStaticPaths = async () => {
 }
 
 export async function getStaticProps({params}) {
-    const {items} = await client.getEntries({
-        content_type: 'car',
-        'fields.model': params.model
-    })
+    const data = await client.getEntries({
+        content_type: "car",
+        'fields.modeli.sys.contentType.sys.id': 'vehicleModel',
+        'fields.modeli.fields.name[all]': 'E-Class',
+        include: 10,
+    });
 
     return {
         props: {car:items[0]}

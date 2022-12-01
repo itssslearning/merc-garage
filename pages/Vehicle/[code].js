@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY 
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
 })
 
 
@@ -41,14 +41,14 @@ export default function VehicleDetails({car}) {
     const {image, tittle} = car.fields
     
     return (
-        <div class="flex justify-center">
-            <div class="rounded-lg shadow-lg bg-white max-w-sm">
-                <Image class=" w-full h-48 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none md:rounded-l-lg" src={'https:' + image.fields.file.url} alt="image"
+        <div className="flex justify-center pt-3 pb-3">
+            <div className="rounded-lg shadow-lg bg-white max-w-sm">
+                <Image className=" w-full h-48 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none md:rounded-l-lg" src={'https:' + image.fields.file.url} alt="image"
                         width={image.fields.file.details.image.width}
                         height={image.fields.file.details.image.height} />
-                <div class="p-6">
-                    <h5 class="text-gray-900 text-xl font-medium mb-2">{tittle}</h5>
-                    <p class="text-gray-700 text-base mb-4">
+                <div className="p-6">
+                    <h5 className="text-gray-900 text-xl font-medium mb-2">{tittle}</h5>
+                    <p className="text-gray-700 text-base mb-4">
                         Some quick example text to build on the card title and make up the bulk of the card's
                         content.
                     </p>
