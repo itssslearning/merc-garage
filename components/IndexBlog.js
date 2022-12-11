@@ -1,23 +1,23 @@
-import Link from "next/link"
 import Image from "next/image"
 
-export default function IndexBlog({car}) {
+export default function IndexBlog({blog}) {
     
     // const {tittle, code, model, engine, fuel, gallery, gearBox, image, isTopTen, year} = car.fields
-    const {blogTittle, blogImage} = car.fields
-    
+    const {tittle, blogImage} = blog.fields
+
+
     return (
         
-        <div role="status" class="space-y-8 md:space-y-0 md:space-x-8 md:flex md:items-center">
-            <div class="flex justify-center items-center w-full h-48 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
-            <a href="#" data-mdb-ripple="true" data-mdb-ripple-color="light">
+        <div role="status" className="space-y-8 md:space-y-0 md:space-x-8 md:flex md:items-center">
+            <div className="flex justify-center items-center w-full h-48 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
+            <a href={`blog/${tittle}`} data-mdb-ripple="true" data-mdb-ripple-color="light">
                         <Image className="rounded-t-lg" src={'https:' + blogImage.fields.file.url} alt="img"
                             width={blogImage.fields.file.details.image.width}
                             height={blogImage.fields.file.details.image.height}/>
                     </a>
             </div>
-            <div class="w-full">
-                <div class="w-48 mb-4">{blogTittle}</div>
+            <div className="w-full">
+                <div className="w-48 mb-4">{tittle}</div>
             </div>
         </div>
     )

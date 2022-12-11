@@ -36,27 +36,31 @@ export async function getStaticProps({params}) {
     })
 
     return {
-        props: {car: items[0]}
+        props: {cars: items}
     }
 } 
 
 
-export default function ModelVehicles({car}) {
+export default function ModelVehicles({cars}) {
     // const {code, engine, fuel, gearBox, image, tittle} = car.fields
-    const {image, tittle, code} = car.fields
-        
+
     return (
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 pt-20 pb-10 lg:pt-40 lg:pb-20" >
-            <Card imgSrc={'https:' + image.fields.file.url}>
-                <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{tittle}</h5>
-                <p className="font-normal text-gray-700 dark:text-gray-400">
-                    Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                </p>
-                <Link href={`vehicle/${code}`}>
-                    <Button color="failure">View</Button>
-                </Link>
-            </Card>
+            {
+                cars && cars.map(car => (
+                    <Card  key={`car-${car.sys.id}`} imgSrc={'https:' + car.fields.image.fields.file.url}>
+                        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{car.fields.tittle}</h5>
+                        <p className="font-normal text-gray-700 dark:text-gray-400">
+                            Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                        </p>
+                        <Link href={`/vehicle/${car.fields.code}`}>
+                            <Button color="failure">View</Button>
+                        </Link>
+                    </Card>
+                ))
+            }
+
         </div> 
     )
 }

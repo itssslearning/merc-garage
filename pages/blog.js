@@ -10,21 +10,21 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
   })
 
-  const res = await client.getEntries({content_type: 'car'})
+  const res = await client.getEntries({content_type: 'blog'})
 
   return {
     props: {
-      vehicles: res.items
+      blogs: res.items
     }
   }
 }
 
-export default function Vehicles({vehicles}) {
-  console.log(vehicles);
+export default function Vehicles({blogs}) {
+  console.log(blogs);
   return (
     <div className="main">
-      {vehicles.map(car => (
-          <IndexBlog key={car.sys.id} car= {car}/>
+      {blogs.map(blog => (
+          <IndexBlog key={blog.sys.id} blog= {blog}/>
       ))}
     </div>
   )

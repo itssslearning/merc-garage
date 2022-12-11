@@ -1,5 +1,6 @@
 import { createClient } from "contentful"
-import Image from "next/image"
+import { Card } from "flowbite-react"
+import { ListGroup } from "flowbite-react"
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -37,23 +38,52 @@ export async function getStaticProps({params}) {
 
 
 export default function VehicleDetails({car}) {
-    // const {code, engine, fuel, gearBox, image, tittle} = car.fields
-    const {image, tittle} = car.fields
+    const {code, engine, fuel, gearBox, image, tittle, gallery} = car.fields
+
+    console.log({gallery})
     
     return (
-        <div className="flex justify-center pt-3 pb-3">
-            <div className="rounded-lg shadow-lg bg-white max-w-sm">
-                <Image className=" w-full h-48 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none md:rounded-l-lg" src={'https:' + image.fields.file.url} alt="image"
-                        width={image.fields.file.details.image.width}
-                        height={image.fields.file.details.image.height} />
-                <div className="p-6">
-                    <h5 className="text-gray-900 text-xl font-medium mb-2">{tittle}</h5>
-                    <p className="text-gray-700 text-base mb-4">
-                        Some quick example text to build on the card title and make up the bulk of the card's
-                        content.
-                    </p>
+        <div className="max-w ml-5 p-3">
+            <Card
+                horizontal={false}
+                imgSrc={'https:' + image.fields.file.url}>
+
+                <div className="gallery-wrapper">
+
+                    {
+                        gallery && gallery.map(item => (<img key={`img-${item.sys.id}`} srcSet={'https:' + item.fields.file.url}/>))
+                    }
+
                 </div>
-            </div>
+
+                <div className="desc">
+                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {tittle}
+                    </h5>
+                    <div className="w-52">
+                        <ListGroup>
+                            <ListGroup.Item>
+                                Vehicle Code: {code}
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                Engine: {engine}
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                Fuel: {fuel}
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                Gearbox: {gearBox}
+                            </ListGroup.Item>
+                        </ListGroup>
+                    </div>
+                </div>
+            </Card>
         </div>
     )
 }
+
+
+
+
+
+

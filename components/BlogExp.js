@@ -1,10 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
 
-export default function VehicleCard({car}) {
+export default function BlogExp({blog}) {
     
     // const {tittle, code, model, engine, fuel, gallery, gearBox, image, isTopTen, year} = car.fields
-    const {blogTittle, blogImage} = car.fields
+    const {blogTittle, blogImage} = blog.fields
     
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 pt-20 pb-10 lg:pt-40 lg:pb-20">
