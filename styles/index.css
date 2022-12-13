@@ -4,28 +4,15 @@
 /* purgecss end ignore */
 @tailwind utilities;
 
+body {
+    margin: 0;
+    /*background: black;*/
+}
 .container {
     max-width: 2000px;
     margin: auto;
     margin-bottom: 3rem;
-}
-
-.children {
-    max-width: 2000px;
-    margin: auto;
-    margin-bottom: 3rem;
-    background-color: rgb(54, 52, 52);
-    color: aliceblue;
-}
-
-.desc {
-    position: relative;
-    padding-left: 800px;
-    font-size: 20px;
-}
-
-ListGroup.Item {
-    
+    display: gri;
 }
 
 nav.main-nav {
@@ -33,4 +20,19 @@ nav.main-nav {
     top: 0;
     left: 0;
     z-index: 100;
+    background-color: transparent;
 }
+
+/*nav a.block {*/
+/*    color: white;*/
+/*}*/
+
+/*nav span {*/
+/*    color: white;*/
+/*}*/
+
+.carousel .indiana-scroll-container {
+    border-radius: 0px;
+}
+
+

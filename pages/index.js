@@ -40,7 +40,7 @@ export default function Vehicles({vehicles, blog, models}) {
   return (
     <div className="main box-sizing:border-box ">
       <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-        <Carousel slideInterval={5000} indicators={false}>
+        <Carousel slideInterval={5000} indicators={false} className="carousel">
             {
                 blog && blog.map(vehicle => (<img key={vehicle.sys.id}
                     src={vehicle.fields.blogImage.fields.file.url}
